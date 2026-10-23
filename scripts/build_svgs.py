@@ -176,8 +176,8 @@ def bus_start(n):
     b = ['<rect width="%d" height="%d" fill="none"/>' % (W, H)]
     d = "M500 0V30Q500 44 486 44H%d Q%d 44 %d 58V96" % (BUS_X + 14, BUS_X, BUS_X)
     b.append(trace(d, C["violet"], 0, 2.4, .5, 2, [(500, 2)]))
-    b.append(ORB8.text("OPEN-SOURCE LAB", 540, 30, 16, ls=3, attrs='fill="#f1e9ff" filter="url(#soft)"'))
-    b.append(MONO.text("// %d nodes online · results from committed, reproducible runs" % n, 540, 54, 12, attrs='fill="#8a90b0"'))
+    b.append(ORB8.text("OPEN-SOURCE LAB", 540, 30, 16, ls=3, attrs='fill="%s" filter="url(#soft)"' % C["violet"]))
+    b.append(MONO.text("// %d nodes online · results from committed, reproducible runs" % n, 540, 54, 12, attrs='fill="#7d84a3"'))
     b.append('<circle class="blip" cx="525" cy="24" r="4" fill="%s"/>' % C["lime"])
     extra = ".blip{animation:blip 2s ease-in-out infinite}@keyframes blip{50%{opacity:.3}}"
     return wrap(W, H, "".join(b), extra, "", "Open-source lab: project bus")

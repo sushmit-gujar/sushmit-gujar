@@ -20,7 +20,7 @@ FONTS = {
     "mono": ("JetBrainsMono[wght].ttf", "ofl/jetbrainsmono/JetBrainsMono%5Bwght%5D.ttf"),
     "sans": ("SpaceGrotesk[wght].ttf", "ofl/spacegrotesk/SpaceGrotesk%5Bwght%5D.ttf"),
 }
-C = {"cyan": "#19f0ff", "magenta": "#ff2fd2", "lime": "#b8ff3c", "violet": "#a46bff"}
+C = {"cyan": "#19f0ff", "magenta": "#ff2fd2", "lime": "#b8ff3c", "violet": "#a46bff", "amber": "#ffb020"}
 BG = "#05060b"
 
 
@@ -301,6 +301,12 @@ def stack():
 
 
 PROJECTS = [
+    dict(name="aiwatch", color="amber", catlabel="AI security", tagline="Find, fix + monitor AI-stack vulnerabilities",
+         blurb=["Matches ML/LLM deps and MCP servers to live OSV advisories, flags", "risky loaders + HF refs, writes co-resolved fixes, and a daily", "Action reports NEW vs known via SARIF, issue and dashboard."],
+         stats=[dict(big="272", label="findings auto-fixed · demo app"), dict(big="129", label="newly disclosed vs baseline"),
+                dict(big="99.9", unit="%", label="agree w/ OSV · 900 pins"), dict(big="0.03", unit="s", label="offline scan · live 4.7 s")],
+         pipeline=[dict(label="Inventory", sub="deps · MCP · code"), dict(label="OSV match", sub="GHSA · PYSEC · npm"),
+                   dict(label="Fix", sub="co-resolved bumps"), dict(label="Monitor", sub="new · known · drift"), dict(label="Report", sub="SARIF · issue · dash")]),
     dict(name="loadsafe", color="cyan", catlabel="AI security", tagline="ML model supply-chain security scanner",
          blurb=["Statically audits pickle / PyTorch / joblib / NumPy, safetensors,", "ONNX, GGUF and Keras artifacts + Hugging Face repos before load.", "SARIF + CycloneDX ML-BOM · OWASP LLM03/04 · MITRE ATLAS."],
          stats=[dict(big="100", unit="%", label="detection · 26-file PoC corpus"), dict(big="0", unit="%", label="FPR · same corpus"),

@@ -197,6 +197,7 @@ def card(p, idx, last=False):
         b.append('<path d="M%d 74h-10M%d 74h10M%d 80h-6M%d 80h6M%d 86h-2M%d 86h2" stroke="%s" stroke-width="2" stroke-opacity=".7"/>' % ((BUS_X,) * 6 + (C["violet"],)))
     b.append(trace("M%d 74H%d" % (BUS_X, PX), col, idx * .5 + .3, 1.2, .7, 2, [(BUS_X, 74)], spark=False))
     # panel
+    b.append('<rect x="%d" y="%d" width="%d" height="%d" rx="18" fill="%s"/>' % (PX, PY, PW, PH, BG))
     b.append('<rect x="%d" y="%d" width="%d" height="%d" rx="18" fill="url(#pg)" stroke="%s" stroke-opacity=".55" stroke-width="1.5"/>' % (PX, PY, PW, PH, col))
     b.append('<rect x="%d" y="%d" width="%d" height="%d" rx="18" fill="none" stroke="%s" stroke-opacity=".35" stroke-width="4" filter="url(#glow)"/>' % (PX, PY, PW, PH, col))
     b.append('<path d="M%d %dh-1" />' % (PX, PY))

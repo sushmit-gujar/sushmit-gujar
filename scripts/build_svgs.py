@@ -20,7 +20,7 @@ FONTS = {
     "mono": ("JetBrainsMono[wght].ttf", "ofl/jetbrainsmono/JetBrainsMono%5Bwght%5D.ttf"),
     "sans": ("SpaceGrotesk[wght].ttf", "ofl/spacegrotesk/SpaceGrotesk%5Bwght%5D.ttf"),
 }
-C = {"cyan": "#19f0ff", "magenta": "#ff2fd2", "lime": "#b8ff3c", "violet": "#a46bff", "amber": "#ffb020"}
+C = {"cyan": "#19f0ff", "magenta": "#ff2fd2", "lime": "#b8ff3c", "violet": "#a46bff", "amber": "#ffb020", "blue": "#3d8bff"}
 BG = "#05060b"
 
 
@@ -301,6 +301,12 @@ def stack():
 
 
 PROJECTS = [
+    dict(name="floe", color="blue", catlabel="Data engineering", tagline="Streaming lakehouse on Kubernetes, one command",
+         blurb=["Wikipedia edits → Redpanda → exactly-once Apache Iceberg → dbt", "quality gate → FastAPI. Helm, KEDA on lag, Prometheus + Grafana,", "Trivy and a kind e2e test in CI. Measured on one 8-vCPU node."],
+         stats=[dict(big="30,968", label="events/s · 1.2M burst, KEDA"), dict(big="2.39", unit="s", label="p95 produce → queryable"),
+                dict(big="12.0", unit="s", label="burst → 6 replicas ready"), dict(big="0", label="dups/losses after SIGKILL")],
+         pipeline=[dict(label="Ingest", sub="SSE · Redpanda"), dict(label="Stream", sub="contract · exactly-once"),
+                   dict(label="Iceberg", sub="bronze · DLQ · MinIO"), dict(label="dbt gate", sub="DuckDB · 17 tests"), dict(label="Serve", sub="gold · FastAPI")]),
     dict(name="aiwatch", color="amber", catlabel="AI security", tagline="Find, fix + monitor AI-stack vulnerabilities",
          blurb=["Matches ML/LLM deps and MCP servers to live OSV advisories, flags", "risky loaders + HF refs, writes co-resolved fixes, and a daily", "Action reports NEW vs known via SARIF, issue and dashboard."],
          stats=[dict(big="272", label="findings auto-fixed · demo app"), dict(big="129", label="newly disclosed vs baseline"),
